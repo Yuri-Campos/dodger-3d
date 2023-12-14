@@ -8,6 +8,8 @@ public class mover : MonoBehaviour
 {
     // Start is called before the first frame update
 
+   [SerializeField] float moveSpeed = 1.5f;
+
     void Start()
     {
         
@@ -16,8 +18,8 @@ public class mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xValue = Input.GetAxis("Horizontal");
-        float zValue = Input.GetAxis("Vertical");
+        float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
         transform.Translate(xValue, 0, zValue);
     }
 }
